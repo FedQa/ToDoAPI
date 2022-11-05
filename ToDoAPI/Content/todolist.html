@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My ToDo</title>
+
+    <!--<link href="/Content/bootstrap.css" rel="stylesheet" />-->
+    <link href="/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>To-do CRUD</h1>
+
+        <h3>Add</h3>
+        <form id="form" action="javascript:void(0);" method="POST" onsubmit="addItem()">
+            <input class="input" type="text" id="add-name" placeholder="New to-do">
+            <input class="button" type="submit" value="Add">
+        </form>
+
+        <h3>Search</h3>
+        <form id="form" action="javascript:void(0);" method="GET" onsubmit="searchItem()">
+            <input class="input" type="text" id="search-name" placeholder="to-do">
+            <input class="button" type="submit" value="Search">
+        </form>
+
+
+        <div id="editForm" style="display: none;">
+            <h3>Edit</h3>
+            <form id="form" action="javascript:void(0);" onsubmit="updateItem()">
+                <input class="input" type="hidden" id="edit-id">
+                <input type="checkbox" id="edit-isComplete">
+                <input type="text" id="edit-name">
+                <input class="button" type="submit" value="Save">
+                <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            </form>
+        </div>
+        <p id="counter"></p>
+
+        <table>
+            <tr>
+                <th>Is Complete?</th>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tbody id="todos"></tbody>
+        </table>
+
+        <script src="js/site.js" asp-append-version="true"></script>
+        <script type="text/javascript">
+            getItems();
+        </script>
+</body>
+</html>
